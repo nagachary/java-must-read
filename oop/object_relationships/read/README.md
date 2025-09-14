@@ -5,7 +5,7 @@ Basically there are three types of relationships which are the building blocks o
 
 ## Types of Relationships
 
-1) Association (use-a)
+1) Association (has-a)
 2) Aggregation (has-a)
 3) Composition (has-a)
 
@@ -13,7 +13,7 @@ Basically there are three types of relationships which are the building blocks o
 
 ### Association
 
-Association is the most commonly used relation =ship between two independent classes. It will not indicate any ownership between the classes (whole class and the parts class). It is a general form of a relationship where one object uses or interacts with the other. A class only uses functionalities of another class but does not change its life cycle state.
+Association is the most commonly used relationship between two independent classes. It will not indicate any ownership between the classes (whole class and the parts class). It is a general form of a relationship where one object uses or interacts with the other. A class only uses functionalities of another class but does not change its life cycle state.
 
 Association may be uni-directional or bidirectional and can exist in several forms, one to one, one to many, many to one and many to many.
 
