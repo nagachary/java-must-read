@@ -5,7 +5,7 @@ Basically there are three types of relationships which are the building blocks o
 
 ## Types of Relationships
 
-1) Association (use-a)
+1) Association (has-a)
 2) Aggregation (has-a)
 3) Composition (has-a)
 
