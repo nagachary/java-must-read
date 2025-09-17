@@ -1,13 +1,15 @@
 # Relationships in Object-Oriented Programming
 To build a flexible and robust system, we need to understand the fundamental relationships between classes in object-oriented programming. 
 
-Basically there are three types of relationships which are the building blocks of the class interactions from strongest to weak bonding, which are Composition, Aggregation and Association.
+Basically there are four types of relationships which are the building blocks of the class interactions from strongest to weak bonding, which are Composition, Aggregation, Association and Inheritance.
+
 
 ## Types of Relationships
 
-1) Association (uses-a)
+1) Association (uses-a, has-a)
 2) Aggregation (has-a)
-3) Composition (has-a)
+3) Composition (has-a, part-of)
+4) Inheritance (is-a)
 
 ----
 
@@ -56,5 +58,22 @@ In UML, a filled diamond is attached to an aggregating class (parts) to denote t
 #### UML Representation
 
 <img src="../../../images/Composition.png" width="270" height="130">
+
+### Inheritance
+
+This is also called Generalization. In object-oriented programming, inheritance allows to a new class (subclass) to inherit or re-use the properties and methods from an existing class (parent/super class) with a hierarchical relationship between classes. 
+
+This type of relationship can be said to be "is-a" relationship. Inheritance is a parent-child relationship where we create a subclass by using an existing parent class and teh subclass then override or extend the inherited properties, but also it can have its own properties or methods. 
+
+The classic example of Inheritance is Car and Sedan, Shape and Circle relationships.
+
+In UML, A solid line with a hollow (unfilled) arrowhead (Arrow) is drawn from the subclass to the superclass.
+
+#### UML Representation
+
+<img src="../../../images/Inheritance.png" width="270" height="130">
+
+### Inheritance
+
 
 ----
