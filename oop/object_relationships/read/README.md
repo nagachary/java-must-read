@@ -75,7 +75,4 @@ In UML, A solid line with a hollow (unfilled) arrowhead (Arrow) is drawn from th
 
 <img src="../../../images/Inheritance.png" width="270" height="130">
 
-### Inheritance
-
-
 ----
