@@ -59,6 +59,8 @@ In UML, a filled diamond is attached to an aggregating class (parts) to denote t
 
 <img src="../../../images/Composition.png" width="270" height="130">
 
+----
+
 ### Inheritance
 
 This is also called Generalization. In object-oriented programming, inheritance allows to a new class (subclass) to inherit or re-use the properties and methods from an existing class (parent/super class) with a hierarchical relationship between classes. 
