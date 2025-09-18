@@ -103,6 +103,6 @@ In UML, A dependency is depicted as a dashed line with an open arrow pointing fr
 
 ### Summary
 
-<img src="../../../images/Summary.png" width="270" height="130">
+<img src="../../../images/Summary.png" width="300" height="150">
 
 ----
