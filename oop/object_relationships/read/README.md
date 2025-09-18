@@ -1,7 +1,7 @@
 # Relationships in Object-Oriented Programming
 To build a flexible and robust system, we need to understand the fundamental relationships between classes in object-oriented programming. 
 
-Basically there are four types of relationships which are the building blocks of the class interactions from strongest to weak bonding, which are Composition, Aggregation, Association, Inheritance and Dependency.
+Basically there are five types of relationships which are the building blocks of the class interactions from strongest to weak bonding, which are Composition, Aggregation, Association, Inheritance and Dependency.
 
 
 ## Types of Relationships
