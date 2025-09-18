@@ -16,7 +16,7 @@ Basically there are five types of relationships which are the building blocks of
 
 ### Association
 
-Association is the most commonly used relationship between two independent classes. It will not indicate any ownership between the classes (whole class and the parts class). It is a general form of a relationship where one object uses or interacts with the other. A class only uses functionalities of another class but does not change its life cycle state. One object leverages the functionality or data of another object.
+Association is the most commonly used relationship between two independent classes. It will not indicate any ownership between the classes (whole class and the part class). It is a general form of a relationship where one object uses or interacts with the other. A class only uses functionalities of another class but does not change its life cycle state. One object leverages the functionality or data of another object.
 
 Association may be uni-directional or bidirectional and can exist in several forms, one to one, one to many, many to one and many to many.
 
@@ -50,9 +50,9 @@ In UML, Aggregation is represented by a hollow diamond attached to the solid lin
 
 Composition is a special type of aggregation. It is a strong type of aggregation in which contained class objects’ lifecycle is strongly associated with the container class objects’  lifecycle. This means that the parts are created when the whole is created and destroyed when the whole is destroyed.
 
-This kind of association can be said to be a “part-of” relationship and denote that contained class is object is strongly associated with the containing class, the whole. The parts cannot be without the whole. Here the entities are highly dependent on each other.  Composition is a type of “has-a” relationship.
+This kind of association can be said to be a “part-of” relationship and denote that contained class object is strongly associated with the containing class, the whole. The parts cannot be without the whole. Here the entities are highly dependent on each other.  Composition is a type of “has-a” relationship.
 
-The classic example of composition are House and Rooms, Book and Pages relationships.
+The classic example of composition are House and Rooms, Book and Pages relationships. If the Book is destroyed, the Pages cease to exist—hence a strong lifecycle dependency.
 
 In UML, a filled diamond is attached to an aggregating class (parts) to denote the composition relationship with an aggregated class (whole).
 
@@ -66,7 +66,7 @@ In UML, a filled diamond is attached to an aggregating class (parts) to denote t
 
 This is also called Generalization. In object-oriented programming, inheritance allows to a new class (subclass) to inherit or re-use the properties and methods from an existing class (parent/super class) with a hierarchical relationship between classes. 
 
-This type of relationship can be said to be "is-a" relationship. Inheritance is a parent-child relationship where we create a subclass by using an existing parent class and teh subclass then override or extend the inherited properties, but also it can have its own properties or methods. 
+This type of relationship can be said to be "is-a" relationship. Inheritance is a parent-child relationship where we create a subclass by using an existing parent class and the subclass then override or extend the inherited properties, but also it can have its own properties or methods. 
 
 The classic example of Inheritance is Car and Sedan, Shape and Circle relationships.
 
@@ -81,7 +81,7 @@ In UML, A solid line with a hollow (unfilled) arrowhead (Arrow) is drawn from th
 ### Dependency
 
 Dependency is one of the weakest type of relationships between two classes. In object-oriented programming, dependency exists when one class "uses" another class in which changes to one class (independent) may affect the semantics of the other class (dependent).
-This means there is no conceptual link between the two objects within the system domain. The two objects belong to different contexts or domains, but one uses the other to perform a task.
+Dependency is a transient relationship, where one class relies on another to fulfill a specific task, but there is no strong structural or lifecycle association between them.
 
 "Uses" relationship:
 A dependency indicates that one class "uses" another. This usage can manifest in several ways:
@@ -98,5 +98,11 @@ In UML, A dependency is depicted as a dashed line with an open arrow pointing fr
 #### UML Representation
 
 <img src="../../../images/Dependency.png" width="270" height="130">
+
+----
+
+### Summary
+
+<img src="../../../images/Summary.png" width="270" height="130">
 
 ----
