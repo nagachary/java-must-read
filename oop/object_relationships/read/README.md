@@ -76,3 +76,25 @@ In UML, A solid line with a hollow (unfilled) arrowhead (Arrow) is drawn from th
 <img src="../../../images/Inheritance.png" width="270" height="130">
 
 ----
+
+### Dependency
+
+Dependency is one of the weakest type of relationships between two classes. In object-oriented programming, dependency exists when one class "uses" another class in which changes to one class (independent) may affect the semantics of the other class (dependent).
+This means there is no conceptual link between the two objects within the system domain. The two objects belong to different contexts or domains, but one uses the other to perform a task.
+
+"Uses" relationship:
+A dependency indicates that one class "uses" another. This usage can manifest in several ways:
+* Method parameters: A method in one class accepts an object of another class as a parameter.
+* Local variables: A method creates a local instance of another class.
+* Method calls: A class directly calls methods of another class.
+
+The classic example of Inheritance is Car and Sedan, Shape and Circle relationships.
+
+In UML, A dependency is depicted as a dashed line with an open arrow pointing from the client class (the one that depends) to the supplier class (the one being depended upon).
+* The dashed line can be optionally labeled with a stereotype, such as «use», «call», «instantiate», or «parameter», to provide more specific information about the nature of the dependency.
+
+#### UML Representation
+
+<img src="../../../images/Dependency.png" width="270" height="130">
+
+----
