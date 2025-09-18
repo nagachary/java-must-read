@@ -88,7 +88,8 @@ A dependency indicates that one class "uses" another. This usage can manifest in
 * Local variables: A method creates a local instance of another class.
 * Method calls: A class directly calls methods of another class.
 
-The classic example of Inheritance is Car and Sedan, Shape and Circle relationships.
+The classic example of dependency is The CarWash performs a service on a Car, making the CarWash class dependent on the Car class.
+The Car object could initiate the request for a wash from a CarWash service, treating the CarWash as a temporary utility.
 
 In UML, A dependency is depicted as a dashed line with an open arrow pointing from the client class (the one that depends) to the supplier class (the one being depended upon).
 * The dashed line can be optionally labeled with a stereotype, such as «use», «call», «instantiate», or «parameter», to provide more specific information about the nature of the dependency.
