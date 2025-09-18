@@ -1,13 +1,16 @@
 # Relationships in Object-Oriented Programming
 To build a flexible and robust system, we need to understand the fundamental relationships between classes in object-oriented programming. 
 
-Basically there are three types of relationships which are the building blocks of the class interactions from strongest to weak bonding, which are Composition, Aggregation and Association.
+Basically there are four types of relationships which are the building blocks of the class interactions from strongest to weak bonding, which are Composition, Aggregation, Association, Inheritance and Dependency.
+
 
 ## Types of Relationships
 
 1) Association (uses-a)
 2) Aggregation (has-a)
-3) Composition (has-a)
+3) Composition (has-a, part-of)
+4) Inheritance (is-a)
+5) Dependency
 
 ----
 
@@ -56,5 +59,44 @@ In UML, a filled diamond is attached to an aggregating class (parts) to denote t
 #### UML Representation
 
 <img src="../../../images/Composition.png" width="270" height="130">
+
+----
+
+### Inheritance
+
+This is also called Generalization. In object-oriented programming, inheritance allows to a new class (subclass) to inherit or re-use the properties and methods from an existing class (parent/super class) with a hierarchical relationship between classes. 
+
+This type of relationship can be said to be "is-a" relationship. Inheritance is a parent-child relationship where we create a subclass by using an existing parent class and teh subclass then override or extend the inherited properties, but also it can have its own properties or methods. 
+
+The classic example of Inheritance is Car and Sedan, Shape and Circle relationships.
+
+In UML, A solid line with a hollow (unfilled) arrowhead (Arrow) is drawn from the subclass to the superclass.
+
+#### UML Representation
+
+<img src="../../../images/Inheritance.png" width="270" height="130">
+
+----
+
+### Dependency
+
+Dependency is one of the weakest type of relationships between two classes. In object-oriented programming, dependency exists when one class "uses" another class in which changes to one class (independent) may affect the semantics of the other class (dependent).
+This means there is no conceptual link between the two objects within the system domain. The two objects belong to different contexts or domains, but one uses the other to perform a task.
+
+"Uses" relationship:
+A dependency indicates that one class "uses" another. This usage can manifest in several ways:
+* Method parameters: A method in one class accepts an object of another class as a parameter.
+* Local variables: A method creates a local instance of another class.
+* Method calls: A class directly calls methods of another class.
+
+The classic example of dependency is The CarWash performs a service on a Car, making the CarWash class dependent on the Car class.
+The Car object could initiate the request for a wash from a CarWash service, treating the CarWash as a temporary utility.
+
+In UML, A dependency is depicted as a dashed line with an open arrow pointing from the client class (the one that depends) to the supplier class (the one being depended upon).
+* The dashed line can be optionally labeled with a stereotype, such as «use», «call», «instantiate», or «parameter», to provide more specific information about the nature of the dependency.
+
+#### UML Representation
+
+<img src="../../../images/Dependency.png" width="270" height="130">
 
 ----
