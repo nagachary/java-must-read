@@ -92,6 +92,7 @@ Stack memory ideal for handling short-lived, method-scoped data.
 
 Once a method completes execution, its associated stack frame is removed automatically.
 Each thread’s stack is limited in size, which can be configured using the ```-Xss``` JVM option.
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Method Area
 
