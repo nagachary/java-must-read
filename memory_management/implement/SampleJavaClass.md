@@ -93,11 +93,9 @@ The parameters a and b for the method addition(int a, int b) are local variables
 They exist on the stack during the method’s execution, and once the method completes, they are removed from the stack.
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-
 ### Summary of Memory Types:
 
 ```
-
 | Variable/Method                    | Memory Type               | Explanation                                                |
 | ---------------------------------- | ------------------------- | ---------------------------------------------------------- |
 | `SampleJavaClass` (class)          | Method Area (Heap)        | Class data, static variables, and methods are here.        |
@@ -107,5 +105,4 @@ They exist on the stack during the method’s execution, and once the method com
 | `new SampleJavaClass()` (object)   | Heap Memory               | Object instance created at runtime is stored in the heap.  |
 | `addition` (method)                | Method Area               | The method code is loaded into the method area.            |
 | `a`, `b` (method parameters)       | Stack Memory              | Local variables for method execution, stored in the stack. |
-
 ```
