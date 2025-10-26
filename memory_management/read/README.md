@@ -203,4 +203,21 @@ Shared Areas:
       └── Old Generation
   - Method Area (PermGen / Metaspace)
 
+Garbage Collection Overview:
+────────────────────────────
+• Minor GC   → Cleans Young Generation (Eden + Survivor spaces)
+• Major GC   → Cleans both Young and Old Generations
+• Concurrent GCs (G1, ZGC, Shenandoah) → Low pause, region-based collection
+
+Memory Tuning Parameters:
+──────────────────────────
+• -Xms / -Xmx → Heap initial & max size
+• -Xmn → Young Generation size
+• -Xss → Stack size per thread
+• -XX:NewRatio → Ratio between Young/Old generation
+• -XX:MetaspaceSize / -XX:MaxMetaspaceSize → Metaspace control
+• -XX:SurvivorRatio → Eden-to-Survivor ratio
+• -XX:MaxTenuringThreshold → Promotion age threshold
 ```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
