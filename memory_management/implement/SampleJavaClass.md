@@ -1,4 +1,4 @@
-Let us find out the memory allocation for teh following sample java class
+Let us find out the memory allocation for the following sample java class
 
 ```
 public class SampleJavaClass {
