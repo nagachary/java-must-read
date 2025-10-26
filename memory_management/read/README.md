@@ -185,7 +185,6 @@ The JVM provides a built-in feature to monitor native memory consumption with:
 ```
 -XX:NativeMemoryTracking=summary -XX:+UnlockDiagnosticVMOptions
 ```
-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Summary
 
@@ -221,3 +220,5 @@ Memory Tuning Parameters:
 ```
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Refer to the [SampleJavaClass](../implement/SampleJavaClass.md) file for clearer understanding.
