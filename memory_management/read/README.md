@@ -55,8 +55,8 @@ Proper tuning of the Young Generation can help reduce promotion rates (to old ge
 For example, you can adjust:
     
 * ```The size of the Young Generation with -Xmn```
-* ```he Eden-to-Survivor space ratio using -XX:SurvivorRatio```
-* ``` The promotion age threshold with -XX:MaxTenuringThreshold```
+* ```The Eden-to-Survivor space ratio using -XX:SurvivorRatio```
+* ```The promotion age threshold with -XX:MaxTenuringThreshold```
 
 ### Old Generation:
 
