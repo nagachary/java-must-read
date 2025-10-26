@@ -111,7 +111,7 @@ The Method Area is a logical part of the JVM memory model, separate from the hea
 It stores class-level data such as metadata, bytecode, and static variables. 
 The actual physical implementation depends on the JVM; for example, in HotSpot prior to Java 8, it was implemented using the PermGen space within the heap, while Java 8 and later use Metaspace, which is outside the heap.
 This area is logically defined by the JVM Specification and is shared among all threads.
-When a class or interface is loaded by the JVM, its definition is parsed 
+When a class or interface is loaded by the JVM, its definition is parsed.
 
     * Class structure metadata, including class names, superclasses, implemented interfaces, and modifiers (public, final, etc.)
     * Runtime constant pool, which contains literal values and symbolic references used by the class
@@ -119,6 +119,7 @@ When a class or interface is loaded by the JVM, its definition is parsed
     * Field and method information, including method signatures, access modifiers, and bytecode instructions
     * Constructor code, including initialization routines for object creation
     * Type information used for method resolution and dispatching
+
 
 In modern JVMs, Metaspace grows automatically by default, but administrators can cap its size using ```-XX:MaxMetaspaceSize``` to prevent unbounded native memory usage.
 
@@ -186,6 +187,7 @@ The JVM provides a built-in feature to monitor native memory consumption with:
 ```
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Summary
 
 ```
 JVM Memory Structure
@@ -201,4 +203,21 @@ Shared Areas:
       └── Old Generation
   - Method Area (PermGen / Metaspace)
 
+Garbage Collection Overview:
+────────────────────────────
+• Minor GC   → Cleans Young Generation (Eden + Survivor spaces)
+• Major GC   → Cleans both Young and Old Generations
+• Concurrent GCs (G1, ZGC, Shenandoah) → Low pause, region-based collection
+
+Memory Tuning Parameters:
+──────────────────────────
+• -Xms / -Xmx → Heap initial & max size
+• -Xmn → Young Generation size
+• -Xss → Stack size per thread
+• -XX:NewRatio → Ratio between Young/Old generation
+• -XX:MetaspaceSize / -XX:MaxMetaspaceSize → Metaspace control
+• -XX:SurvivorRatio → Eden-to-Survivor ratio
+• -XX:MaxTenuringThreshold → Promotion age threshold
 ```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
