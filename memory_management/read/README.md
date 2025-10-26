@@ -2,7 +2,7 @@
 
 It is essential to understand the memory structure and management in java virtual machine for developing high performing java applications efficiently.
 
-JVM is divided into several logical data areas each perform specific role during the program execution.
+The JVM is divided into several logical data areas, each performing a specific role during program execution.
 
 These logical areas in memory are
 
@@ -74,6 +74,16 @@ To control the size and behavior of the Old Generation, you can adjust:
 * ```The size of the Young Generation using -Xmn, which affects how much memory is left for the Old Generation```
 * ```The ratio between the two using -XX:NewRatio```
 
+Even though the heap is shared, object allocation is optimized per-thread.
+To speed up object allocation in a multi-threaded environment, the JVM uses Thread-Local Allocation Buffers (TLABs) — small portions of the heap dedicated to each thread. 
+This allows most allocations to occur without synchronization overhead.
+
+```
+Minor GC: Cleans up the Young Generation (Eden + Survivor Spaces).
+Major GC (Full GC): Cleans both Young and Old Generations.
+Concurrent GC (e.g., G1, ZGC, Shenandoah): Modern collectors minimize stop-the-world pauses by cleaning regions concurrently with application threads.
+```
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Stack Memory
 
@@ -83,7 +93,7 @@ return addresses.
 
 Every time a method is invoked, the JVM allocates a new **stack frame** on the thread’s stack. This frame is a self-contained unit of memory that holds all the necessary data for executing that method.
 Stack frames are lightweight and quick to allocate. Since the stack frames are thread-local and do not require synchronization, operations on the stack (method calls and returns) are extremely fast.
-Stack memory ideal for handling short-lived, method-scoped data.
+Stack memory is ideal for handling short-lived, method-scoped data.
 
     * Primitive values (e.g., int, double, boolean)
     * Object references: pointers to objects that live in the heap
@@ -97,9 +107,9 @@ Each thread’s stack is limited in size, which can be configured using the ```-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Method Area
 
-Method area is a logical part of the Heap memory and is created when the JVM starts.
-Method area is used to store class-level information such as class structures, Method bytecode, Static variables, Constant pool, Interfaces.
-Static variables in Java are stored in the Method Area.
+The Method Area is a logical part of the JVM memory model, separate from the heap. 
+It stores class-level data such as metadata, bytecode, and static variables. 
+The actual physical implementation depends on the JVM; for example, in HotSpot prior to Java 8, it was implemented using the PermGen space within the heap, while Java 8 and later use Metaspace, which is outside the heap.
 This area is logically defined by the JVM Specification and is shared among all threads.
 When a class or interface is loaded by the JVM, its definition is parsed 
 
@@ -109,6 +119,8 @@ When a class or interface is loaded by the JVM, its definition is parsed
     * Field and method information, including method signatures, access modifiers, and bytecode instructions
     * Constructor code, including initialization routines for object creation
     * Type information used for method resolution and dispatching
+
+In modern JVMs, Metaspace grows automatically by default, but administrators can cap its size using ```-XX:MaxMetaspaceSize``` to prevent unbounded native memory usage.
 
 ### PermGen (Before Java 8):
 
@@ -132,6 +144,8 @@ To control Metaspace usage, the JVM provides the following flags
 -XX:MaxMetaspaceSize=512m
 ```
 Metaspace memory is eligible for collection when classes are unloaded.
+
+Metaspace also includes a sub-area called the Compressed Class Space, which stores class metadata when class pointer compression (UseCompressedClassPointers) is enabled.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Program Counter (PC)
@@ -173,4 +187,18 @@ The JVM provides a built-in feature to monitor native memory consumption with:
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+```
+JVM Memory Structure
+--------------------
+Thread-Specific Areas:
+  - PC Register
+  - Java Stack
+  - Native Method Stack
 
+Shared Areas:
+  - Heap
+      ├── Young Generation (Eden + S0 + S1)
+      └── Old Generation
+  - Method Area (PermGen / Metaspace)
+
+```
