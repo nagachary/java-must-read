@@ -91,7 +91,7 @@ Unlike heap memory, Stack memory is not shared among threads. Stack is thread-lo
 When a thread is created , JVM allocates a new Java stack for that thread. The JVM stack is used to store method execution data, method calls, including local variables, references to objects method arguments and
 return addresses.
 
-Every time a method is invoked, the JVM allocates a new **stack frame** on the thread’s stack. This frame is a self-contained unit of memory that holds all the necessary data for executing that method.
+Every time a method is invoked, the JVM allocates a new **[stack frame](./stack_frame.md)** on the thread’s stack. This frame is a self-contained unit of memory that holds all the necessary data for executing that method.
 Stack frames are lightweight and quick to allocate. Since the stack frames are thread-local and do not require synchronization, operations on the stack (method calls and returns) are extremely fast.
 Stack memory is ideal for handling short-lived, method-scoped data.
 
