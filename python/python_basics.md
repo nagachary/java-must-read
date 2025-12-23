@@ -1,6 +1,6 @@
 ## Python Basics
 
-1. Python Interpreter
+1. Python uses interpreter to convert the code to machine understandable instructions.
 2. Best practice is always to use single quotes in print function in Python
 3. In python there cannot be more than one instruction in a line
 4. By default, print() function provides new line character at the end by default.
@@ -49,7 +49,7 @@
 
 1. Bitwise operations on Python are possible but almost never used.
 2. In python, there are 6 bitwise operators (&, |, ^, ~, <<, >>)
-3. ~ is logical negation (~x = -x-1) which is logical not > ~1 =-1-1 ==> -2
+3. `~` is logical negation (~x = -x-1) which is logical not > ~1 =-1-1 ==> -2
 4. `<<` operator:  (left shift)
     1. 3 << 1 = 3 * 2 = 6
     2. 3 << 2=3*(2*2) = 12
