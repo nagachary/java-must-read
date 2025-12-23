@@ -1,4 +1,4 @@
-## Python Basics
+### Python Basics
 
 1. Python uses interpreter to convert the code to machine understandable instructions.
 2. Best practice is always to use single quotes in print function in Python

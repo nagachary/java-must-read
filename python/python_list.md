@@ -1,4 +1,5 @@
-### python List:
+### Python List:
+
 1. empty_list = []
 2. top_cities = [‘city1’, ‘city2’, ‘city3’, ‘city4’, ‘city5’]
 3. top_cities[-1] will return the last element of the list

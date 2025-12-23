@@ -1,4 +1,4 @@
-### python Tuple:
+### Python Tuple:
 
 1.  Lists are mutable but tuples are immutable
 2. Tuples are created with angular braces( element1, element 2) or element1, element2,

@@ -1,4 +1,4 @@
-### python Dictionary;
+### Python Dictionary:
 
 1. Dictionaries are `collections used to store key value pair`.
 2. `dict1 = {1 : 'one', 2: 'two', 3: 'three'}`
