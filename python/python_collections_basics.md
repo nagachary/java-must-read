@@ -52,9 +52,12 @@
                 1. print(sorted(list))
                 2. list : [50, 40, 30, 20, 10]
                 3. sorted(list): [10, 20, 30, 40, 50]
-                4. If element in list: will help us to identify if the specified element is present in list. Behind the scenes both the variables point to the same very place in the memory.
-                5. In complex data types like lists, the name of the list doesn’t point to actual list in the computer memory, instead the name of the list is the name of the memory location where the list is stored. We call these as references
-                6. To keep both the lists independently, we can use slicing for copying the list
+                4. `if element in list` : will help us to identify if the specified element is present in list. Behind the scenes both the variables point to the same very place in the memory.
+                5. create a list from another list
+                   1. `list1 = list2`
+                   2. here list1 and list2 points to the same reference
+                6. In complex data types like lists, the name of the list doesn’t point to actual list in the computer memory, instead the name of the list is the name of the memory location where the list is stored. We call these as references
+                7. To keep both the lists independently, we can use slicing for copying the list
                     1. new_list = original_list[:]
                     2. new_list = original_list[:2]
             20. List comprehensions:
@@ -78,10 +81,10 @@
             24. Add two lists: using + (plus)
                 1. list1 = [1,2,3,4, 5]
                 2. list2 = [6, 7, 8]
-                3. result_list = list1+list2
+                3. `result_list = list1 + list2`
                 4. O/p: [1, 2, 3, 4, 5, 6, 7, 8]
             25. Multiply a list with numbers
-                1. str_list = ['a', 'b', 'c']
-                2. str_list*3
+                1. `str_list = ['a', 'b', 'c']`
+                2. `str_list * 3`
                 3. List elements are repeated 3 times, which means same list is added like 3 times
-                4. o/p: ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c']
+                4. `o/p: ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c']`
