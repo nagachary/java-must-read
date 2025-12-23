@@ -1,4 +1,4 @@
-### Dictionary
+### python Dictionary;
 
 1. Dictionaries are `collections used to store key value pair`.
 2. `dict1 = {1 : 'one', 2: 'two', 3: 'three'}`
@@ -19,8 +19,10 @@
 12. To read only values we can use the `.values()` method in dictionary.
     1. `dict1.values()`
 13. We can use `.items()` method to read both key and values of the dictionary
-````
+    ````
     1. dict1.items()
     2. It returns each key and value as a tuple (key, value)
     3. for key, val in dict1.items():
-    4.print(key, '-', val) ```
+    4.print(key, '-', val) 
+    
+Previous: [Python Collections](./python_collections.md)

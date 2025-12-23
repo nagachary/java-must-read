@@ -1,4 +1,4 @@
-### Tuple
+### python Tuple:
 
 1.  Lists are mutable but tuples are immutable
 2. Tuples are created with angular braces( element1, element 2) or element1, element2,
@@ -36,3 +36,5 @@
                  i[j] = count
          print(t)
      O/p: 1, 12.12, True, [2, 3, 4, 5, 6]) ```
+
+Previous: [Python Collections](./python_collections.md)

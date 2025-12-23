@@ -1,4 +1,4 @@
-### List:
+### python List:
 1. empty_list = []
 2. top_cities = [‘city1’, ‘city2’, ‘city3’, ‘city4’, ‘city5’]
 3. top_cities[-1] will return the last element of the list
@@ -85,3 +85,5 @@
     2. `str_list * 3`
     3. List elements are repeated 3 times, which means same list is added like 3 times
     4. `o/p: ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c']`
+
+Previous: [Python Collections](./python_collections.md)
