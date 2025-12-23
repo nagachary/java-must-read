@@ -81,4 +81,4 @@
         1. pass
 15. In python, while and for loops will have else branch:  The else branch of a while/for loop is always executed exactly once except in break, continue and pass statement/instruction scenario.'''
 
-Next: [Python Collections](./python_collections_basics.md)
+Next: [Python Collections](./python_collections.md)
