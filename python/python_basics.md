@@ -13,7 +13,7 @@
 10. In python, comments are started with a hash (#) sign.
 
 11. Beginning python3.6, we can use underscores in numbers: e.g: 2_333_333 == 2333333
-12. Decimal Numbers can also be represented in scientific notation (for e.g 3e4 for 30000.0, 3e-4 for 0.0003) => 3e4 = 3 * 10 pow 4 > 3 *10000
+12. Decimal Numbers can also be represented in scientific notation (for e.g. 3e4 for 30000.0, 3e-4 for 0.0003) => 3e4 = 3 * 10 pow 4 > 3 *10000
 13. In Python, Numbers can also be represented in octal and in hexadecimal format
 14. If any number  starts with 0O or 0o, then the number is in octal value. After the 0O or 0o, we can give only from 1 to 7 numbers. 8 and 9 are not allowed.
 15. Hexadecimal numbers starts with 0X or 0x
@@ -66,18 +66,18 @@
 9. We can use `\` (backslash) to code in multiline in python
     1. E.g: (elif not user_age >= 23 and user_country == 'def' or  user_country == 'ghi' \
     2.    or user_country == 'jkl':)
-10. In python triple quotes (‘’’) at the start and end of the string in print will allow the string to print in multiple lines
+10. In python triple quotes (''') at the start and end of the string in print will allow the string to print in multiple lines
     1. print(‘’’ ==============
        1.     == print==
        2. ==============‘’’)
 11. Sequence is a type of data structure in python which stores multiple values of same type.
     1. E.g: string is a sequence of multiple characters: ‘Hello’ => h, e, l, l, 0
 12. The index in for loop is called control variable
-    1. e.g: for i in ‘hello’ => here i is control variable.
+    1. e.g: for i in ‘hello’ => here `i` is control variable.
     2. E.g: for index in range(1, 11): ==> here in the range function, start value 1 is inclusive and the end value 11 is exclusive.
 13. break and continue instructions will break and skip the iterations in loop respectively.
 14. pass instruction will do nothing in the loop
-    1. for i in range(11): here the pass will do nothing and for loop will not give any error during runtime,. Here range is from 0 to 10 (11 is exclusive)
+    1. for i in range(11): here the pass will do nothing and for loop will not give any error during runtime, Here range is from 0 to 10 (11 is exclusive)
         1. pass
 15. In python, while and for loops will have else branch:  The else branch of a while/for loop is always executed exactly once except in break, continue and pass statement/instruction scenario.'''
 
