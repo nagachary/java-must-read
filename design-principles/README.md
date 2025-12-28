@@ -1,4 +1,4 @@
-### Design Principles
+### Software Design Principles
 
 General Software Design Principles
 
@@ -12,7 +12,6 @@ General Software Design Principles
 1. The time to add complexity is when simplicity stops working. If your single class grows to 500 lines with ten different responsibilities, that's when you refactor. If adding a new payment method means modifying code in five places, that's when you introduce a strategy pattern. But start simple.
 
 #### DRY - Don’t repeat yourself
-
 1. When you find yourself writing the same logic in multiple places, pull it into one place. If three classes all validate email addresses the same way, create a shared validation method. If two services both need to convert timestamps, put that conversion in a utility function.
 
 
@@ -20,18 +19,15 @@ General Software Design Principles
 
 
 #### YAGNI - You Aren’t Going to Need it
-
 1.  Build what you need now, not what you might need later. In interviews, when you're designing a parking lot system, don't add support for valet parking and electric vehicle charging stations unless the requirements specifically mention them. Don't make your classes extensible in every direction just in case.
 
 
 2. The problem with building for future requirements is you usually guess wrong. You add complexity for scenarios that never happen, and when the actual new requirement comes, it's different from what you prepared for. Now you're stuck maintaining dead code.
 
 #### Separation of Concerns:
-
 1. Different parts of your code should handle different responsibilities, and they shouldn't know about each other's internals. Your UI layer shouldn't contain business logic. Your business logic shouldn't know how data is stored. Your data access layer shouldn't format strings for display.
 
 #### Law of Demeter (Principle of the least knowledge)
-
 1. A method should only talk to its immediate friends, not reach through objects to access distant parts of the system. If you see code like order.getCustomer().getAddress().getZipCode(), that's violating the Law of Demeter.
 
 
@@ -59,18 +55,15 @@ These principles are grouped under the acronym SOLID and apply specifically when
 Modern languages favor simpler approaches—composition over class hierarchies, functions over interfaces. Don't break KISS by forcing SOLID patterns where simpler solutions work fine. In interviews, apply these principles when the problem calls for them, but recognize when you're adding complexity for its own sake.
 
 #### SRP - Single Responsibility Principle:
-
 1.  A class should have one reason to change. If a class mixes multiple concerns, split them. This is the foundation of good class design.
 
 #### OCP - Open/Closed Principle:
-
 1.  Classes should be open for extension but closed for modification. You should be able to add new behavior without changing existing code. This usually means using interfaces or abstract classes so you can add new implementations without touching the original code.
 
 
 2.  Every time you modify existing code, you risk breaking things that already work. If you design with interfaces from the start, adding new functionality becomes a matter of writing new classes that implement those interfaces. The old code never changes, so it can't break.
 
 #### LSP - Liskov Substitution Principle:
-
 1. Subclasses must work wherever the base class works. If you have a method that accepts a Bird, passing in a Penguin shouldn't break things even though penguins can't fly. This means your subclasses can't violate the expectations set by the parent class.
 
 
@@ -80,7 +73,6 @@ Modern languages favor simpler approaches—composition over class hierarchies, 
 3. If a subclass forces callers to add special-case logic (e.g., if (bird instanceof Penguin)), you violated LSP.
 
 #### ISP - Interface Segregation Principle:
-
 1.  Prefer small, focused interfaces over large, general-purpose ones. Don't force classes to implement methods they don't need. If a class only needs two methods from an interface with ten methods, that interface is too big.
 
 
@@ -90,7 +82,6 @@ Modern languages favor simpler approaches—composition over class hierarchies, 
 3.  Classes can implement multiple small interfaces if they need to, but they're not stuck implementing irrelevant methods.
 
 #### Dependency Inversion Principle:
-
 1.  High-level modules shouldn't depend on low-level modules. Both should depend on abstractions. This means your business logic shouldn't directly instantiate concrete classes - it should depend on interfaces.
 
 
