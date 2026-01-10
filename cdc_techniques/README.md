@@ -157,8 +157,8 @@ Not suitable for streaming or strict consistency requirements.
 
 - Application writes domain change + event in same transaction
 - Outbox table read by:
- - Polling job, or
- - Log-based CDC connector
+  - Polling job, or
+  - Log-based CDC connector
 - Events published to message broker
   ``` 
   Application → DB (Data + Outbox) → CDC → Kafka / Event Bus 

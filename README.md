@@ -9,4 +9,6 @@ Following are the covered topics in this repository.
 
 * [Java Memory Management](./memory_management/read/README.md)
 
+* [Change Data Capture (CDC)](./cdc_techniques/README.md)
+
 
