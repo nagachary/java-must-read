@@ -171,39 +171,33 @@ Couchbase is an **AP system** with eventual consistency by default, but supports
 Couchbase is ideal for **high-performance, flexible schema, distributed applications**.
 
 ---
+## 1. Read/Write & Workload Suitability
 
-## Comparison of Read/Write Suitability
-
-| Database    | Reads      | Writes     | Best Workload                        | Reason                                                    |
+| Database   | Reads     | Writes    | Best Workload                       | Reason                                                    |
 |------------|-----------|-----------|-------------------------------------|-----------------------------------------------------------|
-| PostgreSQL | Excellent | Medium    | Read-heavy, transactional           | Rich indexing, complex queries, ACID transactions        |
-| Cassandra  | Medium    | Excellent | Write-heavy, massive scale          | Append-only storage, peer-to-peer, high write throughput |
+| PostgreSQL | Excellent | Medium    | Read-heavy, transactional           | Rich indexing, complex queries, ACID transactions         |
+| Cassandra  | Medium    | Excellent | Write-heavy, massive scale          | Append-only storage, peer-to-peer, high write throughput  |
 | DynamoDB   | Excellent | Excellent | High read + write, cloud/serverless | Fully managed, automatic sharding, low-latency operations |
 | MongoDB    | Excellent | Excellent | Flexible schema, high-scale apps    | Document-based, secondary indexes, cloud-friendly         |
 | Couchbase  | Excellent | Excellent | High-performance distributed apps   | Memory-first, flexible schema, optimized for throughput   |
 
 ---
 
-## CAP Theorem Mapping (Practical View)
+## 2. CAP, Sharding & Core Characteristics
 
-| Database   | Chooses      | Sacrifices                   |
-|------------|--------------|------------------------------|
-| PostgreSQL | Consistency  | Availability during failures |
-| Cassandra  | Availability | Immediate consistency        |
-| DynamoDB   | Availability | Strong consistency (optional)|
-| MongoDB    | Availability | Immediate consistency (tunable) |
-| Couchbase  | Availability | Strong consistency at scale (per doc) |
-
----
-
-## Sharding & Distribution
-
-| Aspect              | PostgreSQL          | Cassandra    | DynamoDB                | MongoDB            | Couchbase          |
-|---------------------|-------------------|--------------|------------------------|------------------|------------------|
-| Sharding Model      | Manual / extensions | Automatic   | Automatic (AWS-managed)| Automatic         | Automatic         |
-| Partition Key       | Optional           | Mandatory   | Mandatory              | Mandatory         | Mandatory         |
-| Architecture        | Leader-based       | Peer-to-peer| Multi-AZ managed       | Replica sets      | Clustered memory-first |
-| Global Distribution | Difficult          | Native      | Native                 | Native            | Native            |
+| Aspect              | PostgreSQL          | Cassandra        | DynamoDB             | MongoDB                   | Couchbase                     |
+|---------------------|---------------------|------------------|----------------------|---------------------------|-------------------------------|
+| CAP Model           | CP                  | AP (tunable)     | AP                   | AP (tunable)              | AP (per-document consistency) |
+| Transactions        | ACID                | LWT / limited    | Item-level / limited | Multi-document ACID       | Bucket-level ACID             |
+| Locking             | MVCC + locks        | None             | Optimistic           | Optimistic / replica sets | Optimistic / memory-first     |
+| Sharding            | Manual / extensions | Automatic        | Automatic, managed   | Automatic                 | Automatic                     |
+| Partition Key       | Optional            | Mandatory        | Mandatory            | Mandatory                 | Mandatory                     |
+| Architecture        | Leader-based        | Peer-to-peer     | Multi-AZ managed     | Replica sets              | Clustered memory-first        |
+| Global Distribution | Difficult           | Native           | Native               | Native                    | Native                        |
+| Indexing            | Rich, flexible      | Primary-key only | Primary + GSI/LSI    | Primary + secondary       | Primary + secondary, N1QL     |
+| Read Flexibility    | High                | Limited          | Limited              | Medium-High               | Medium-High                   |
+| Write Scale         | Medium              | Excellent        | Excellent            | Excellent                 | Excellent                     |
+| Availability        | Medium              | Very High        | Extremely High       | High                      | Very High                     |
 
 ---
 
