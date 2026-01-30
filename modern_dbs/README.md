@@ -1,189 +1,125 @@
 # PostgreSQL vs Cassandra vs DynamoDB vs MongoDB vs Couchbase — Complete Comparison
 
-This document provides a detailed deep dive into PostgreSQL, Cassandra, DynamoDB, MongoDB, and Couchbase, covering their data model, sharding, indexing, read/write capabilities, transactions, and scaling.
+This guide provides a comprehensive comparison of PostgreSQL, Cassandra, DynamoDB, MongoDB, and Couchbase, covering data models, sharding, indexing, read/write performance, transactions, scaling, and practical use cases.
 
 ---
 
 ## 1. PostgreSQL
 
-### Overview
-- **Type:** Relational, SQL
-- **Strength:** ACID compliance, strong consistency, complex queries
-- **Use Cases:** Financial apps, booking systems, transactional SaaS platforms
+**Type:** Relational (SQL)  
+**Strength:** ACID compliance, strong consistency, complex queries  
+**Use Cases:** Financial apps, booking systems, transactional SaaS
 
-PostgreSQL is a **CP system** (Consistency + Partition Tolerance in CAP) emphasizing correctness over availability.
+**CAP Model:** CP (Consistency + Partition Tolerance)
 
-### Sharding
-- Not natively sharded; requires extensions like **Citus** or **pg_shard**
-- Horizontal scaling is manual; read replicas can scale reads
-- Best for moderate write workloads
+**Sharding:** Manual (requires extensions like **Citus** or **pg_shard**). Read replicas can scale reads; writes scale moderately.
 
-### Indexing
-- Rich indexing options:
-    - **B-Tree:** Default, equality/range queries
-    - **GIN:** Full-text search
-    - **GiST:** Geospatial queries
-    - **BRIN:** Large sequential datasets
+**Indexing:**
+- B-Tree, GIN (full-text), GiST (geospatial), BRIN (large sequential datasets)
 - Secondary indexes fully supported
-- Reads are fast; writes slightly slower due to index updates
+- Fast reads; writes slightly slower due to index maintenance
 
-### Read/Write Capabilities
-- **Reads:** Excellent
-- **Writes:** Medium
+**Read/Write:** Reads: Excellent | Writes: Moderate
 
-### Transactions
-- Full ACID support
-- MVCC (Multi-Version Concurrency Control)
-- Row/table locks supported
-- Ideal for workflows requiring correctness
+**Transactions:** Full ACID, MVCC, row/table locks
 
-### Summary
-PostgreSQL is best for **read-heavy, transactional workloads** with complex queries.
+**Summary:** Best for **read-heavy, transactional workloads** with complex queries.
 
 ---
 
 ## 2. Cassandra
 
-### Overview
-- **Type:** NoSQL, wide-column store
-- **Strength:** High write throughput, availability, linear scalability
-- **Use Cases:** Metrics collection, logs, IoT, social feeds
+**Type:** NoSQL, wide-column store  
+**Strength:** High write throughput, availability, linear scalability  
+**Use Cases:** Metrics collection, logs, IoT, social feeds
 
-Cassandra is an **AP system** (Availability + Partition Tolerance) with **eventual consistency**.
+**CAP Model:** AP (Availability + Partition Tolerance) with eventual consistency
 
-### Sharding
-- Automatic sharding using **partition key**
-- Peer-to-peer architecture; all nodes are equal
-- Writes and reads can go to any node
-- Linear scalability
+**Sharding:** Automatic via **partition key**; peer-to-peer; linear horizontal scaling
 
-### Indexing
-- Primary key (partition + clustering key) is essential
-- Secondary indexes exist but **not recommended for large tables**
-- Best practice: design data for access patterns
+**Indexing:** Primary key essential; secondary indexes limited for large tables
 
-### Read/Write Capabilities
-- **Writes:** Excellent
-- **Reads:** Medium (key-based fast, range scans slow)
+**Read/Write:** Reads: Moderate | Writes: Excellent
 
-### Transactions
-- Lightweight transactions (LWT) with Paxos
-- Mostly eventual consistency
-- Lock-free
+**Transactions:** Lightweight transactions (LWT) via Paxos; lock-free
 
-### Summary
-Cassandra is ideal for **write-heavy, highly available workloads**.
+**Summary:** Ideal for **write-heavy, highly available workloads**.
 
 ---
 
 ## 3. DynamoDB
 
-### Overview
-- **Type:** NoSQL, key-value / document store
-- **Strength:** Fully managed, serverless, low-latency, elastic
-- **Use Cases:** Gaming backends, session stores, high-scale APIs
+**Type:** NoSQL, key-value/document store  
+**Strength:** Fully managed, serverless, low-latency, elastic  
+**Use Cases:** Gaming backends, session stores, high-scale APIs
 
-DynamoDB is an **AP system** with **eventual consistency by default**.
+**CAP Model:** AP with eventual consistency by default
 
-### Sharding
-- Automatic sharding managed by AWS
-- Partition key is mandatory; hot key handling is critical
-- Scales seamlessly across regions with Global Tables
+**Sharding:** Automatic, AWS-managed; partition key required; supports Global Tables
 
-### Indexing
-- **Primary key:** hash key + optional sort key
-- **Secondary indexes:** GSI, LSI
+**Indexing:** Primary key (hash + optional sort), GSI, LSI
 
-### Read/Write Capabilities
-- **Writes:** Excellent
-- **Reads:** Excellent, eventually consistent by default
+**Read/Write:** Excellent for both reads and writes
 
-### Transactions
-- Supports item-level and multi-item transactions (up to 100 items)
-- Optimistic concurrency control
-- Fully managed, no locks exposed
+**Transactions:** Item-level and multi-item (up to 100 items), optimistic concurrency
 
-### Summary
-DynamoDB is ideal for **high read + write scale** workloads with predictable access patterns.
+**Summary:** Best for **high read/write scale workloads** with predictable access patterns.
 
 ---
 
 ## 4. MongoDB
 
-### Overview
-- **Type:** NoSQL, document store
-- **Strength:** Flexible schema, easy horizontal scaling, cloud-managed options
-- **Use Cases:** Content management, analytics, user profiles, serverless apps
+**Type:** NoSQL, document store  
+**Strength:** Flexible schema, horizontal scaling, cloud-managed options  
+**Use Cases:** Content management, analytics, user profiles, serverless apps
 
-MongoDB is an **AP system** with tunable consistency.
+**CAP Model:** AP with tunable consistency
 
-### Sharding
-- Automatic sharding using **shard key**
-- Supports replica sets for high availability
-- Scales horizontally with minimal operational overhead
+**Sharding:** Automatic via **shard key**; supports replica sets
 
-### Indexing
-- Primary key: `_id`
-- Supports secondary indexes on any field
-- Supports compound, geospatial, text, and TTL indexes
+**Indexing:** Primary `_id`; secondary, compound, geospatial, text, TTL
 
-### Read/Write Capabilities
-- **Reads:** Excellent (key-based and indexed queries)
-- **Writes:** Excellent with replica set acknowledgment settings
+**Read/Write:** Excellent for both reads and writes
 
-### Transactions
-- Multi-document ACID transactions supported since MongoDB 4.0
-- Lock-free replication with configurable write concerns
+**Transactions:** Multi-document ACID transactions supported; configurable write concern
 
-### Summary
-MongoDB is ideal for **flexible schema, high read/write, cloud-friendly workloads**.
+**Summary:** Ideal for **flexible-schema, cloud-friendly applications**.
 
 ---
 
 ## 5. Couchbase
 
-### Overview
-- **Type:** NoSQL, document + key-value store
-- **Strength:** High performance, memory-first architecture, N1QL query support
-- **Use Cases:** Caching, session stores, mobile apps, real-time analytics
+**Type:** NoSQL, document + key-value store  
+**Strength:** High-performance, memory-first architecture, N1QL queries  
+**Use Cases:** Caching, session stores, mobile apps, real-time analytics
 
-Couchbase is an **AP system** with eventual consistency by default, but supports strong consistency per document.
+**CAP Model:** AP, eventual consistency by default; strong consistency per document
 
-### Sharding
-- Automatic sharding and replication
-- Memory-first architecture allows high-speed operations
-- Scales horizontally with minimal ops
+**Sharding:** Automatic with replication; memory-first for high-speed operations
 
-### Indexing
-- Supports primary and secondary indexes
-- N1QL query engine allows SQL-like queries on JSON documents
-- Full-text and geospatial indexes supported
+**Indexing:** Primary/secondary indexes, N1QL, full-text, geospatial
 
-### Read/Write Capabilities
-- **Reads:** Excellent (memory-first, indexed queries)
-- **Writes:** Excellent (optimized for high throughput)
+**Read/Write:** Excellent for both reads and writes
 
-### Transactions
-- Supports ACID transactions within a bucket (multi-document transactions supported)
-- Optimistic concurrency control
+**Transactions:** ACID within bucket; multi-document transactions; optimistic concurrency
 
-### Summary
-Couchbase is ideal for **high-performance, flexible schema, distributed applications**.
-
----
-## 1. Read/Write & Workload Suitability
-
-| Database   | Reads     | Writes    | Best Workload                       | Reason                                                    |
-|------------|-----------|-----------|-------------------------------------|-----------------------------------------------------------|
-| PostgreSQL | Excellent | Medium    | Read-heavy, transactional           | Rich indexing, complex queries, ACID transactions         |
-| Cassandra  | Medium    | Excellent | Write-heavy, massive scale          | Append-only storage, peer-to-peer, high write throughput  |
-| DynamoDB   | Excellent | Excellent | High read + write, cloud/serverless | Fully managed, automatic sharding, low-latency operations |
-| MongoDB    | Excellent | Excellent | Flexible schema, high-scale apps    | Document-based, secondary indexes, cloud-friendly         |
-| Couchbase  | Excellent | Excellent | High-performance distributed apps   | Memory-first, flexible schema, optimized for throughput   |
+**Summary:** Best for **high-performance, distributed, flexible-schema applications**.
 
 ---
 
-## 2. CAP, Sharding & Core Characteristics
+## Read/Write Suitability & Recommended Workloads
+
+| Database   | Reads     | Writes    | Ideal Workload                     | Rationale                                                 |
+|------------|-----------|-----------|------------------------------------|-----------------------------------------------------------|
+| PostgreSQL | Excellent | Moderate  | Read-heavy, transactional          | Rich indexing, complex queries, ACID transactions         |
+| Cassandra  | Moderate  | Excellent | Write-intensive, massive scale     | Append-only storage, peer-to-peer, high write throughput  |
+| DynamoDB   | Excellent | Excellent | High-scale read/write, serverless  | Fully managed, automatic sharding, low-latency operations |
+| MongoDB    | Excellent | Excellent | Flexible schema, cloud-native apps | Document-based, secondary indexes, scalable               |
+| Couchbase  | Excellent | Excellent | High-performance distributed apps  | Memory-first, flexible schema, optimized for throughput   |
+
+---
+
+## CAP, Sharding & Core Characteristics
 
 | Aspect              | PostgreSQL          | Cassandra        | DynamoDB             | MongoDB                   | Couchbase                     |
 |---------------------|---------------------|------------------|----------------------|---------------------------|-------------------------------|
@@ -196,43 +132,25 @@ Couchbase is ideal for **high-performance, flexible schema, distributed applicat
 | Global Distribution | Difficult           | Native           | Native               | Native                    | Native                        |
 | Indexing            | Rich, flexible      | Primary-key only | Primary + GSI/LSI    | Primary + secondary       | Primary + secondary, N1QL     |
 | Read Flexibility    | High                | Limited          | Limited              | Medium-High               | Medium-High                   |
-| Write Scale         | Medium              | Excellent        | Excellent            | Excellent                 | Excellent                     |
+| Write Scale         | Moderate            | Excellent        | Excellent            | Excellent                 | Excellent                     |
 | Availability        | Medium              | Very High        | Extremely High       | High                      | Very High                     |
 
 ---
 
-## When to Choose What (Interview Gold)
+## When to Choose What
 
-### Choose **PostgreSQL** when:
-- Strong consistency and correctness are critical
-- Complex queries and transactions are needed
-- Use cases: fintech, inventory, SaaS backends
-
-### Choose **Cassandra** when:
-- Massive write throughput is required
-- High availability is non-negotiable
-- Use cases: logs, metrics, IoT, event ingestion
-
-### Choose **DynamoDB** when:
-- High read + write scale with low latency
-- Minimal operational overhead
-- Use cases: serverless apps, user profiles, gaming backends
-
-### Choose **MongoDB** when:
-- Flexible schema is needed
-- High read/write with cloud-managed deployment
-- Use cases: content management, analytics, serverless apps
-
-### Choose **Couchbase** when:
-- High-performance, memory-first operations required
-- Flexible schema with distributed architecture
-- Use cases: caching, mobile apps, real-time analytics
+- **PostgreSQL:** Strong consistency, complex queries, transactional workloads.
+- **Cassandra:** Massive write throughput, highly available distributed workloads.
+- **DynamoDB:** Scalable, low-latency, fully managed applications with predictable access patterns.
+- **MongoDB:** Flexible schema, cloud-friendly, high read/write workloads.
+- **Couchbase:** High-performance, memory-first, distributed applications with flexible schema.
 
 ---
 
-### Final Rule of Thumb
+### Quick Reference
+
 > **PostgreSQL = Correctness**  
 > **Cassandra = Availability + Write Scale**  
 > **DynamoDB = Scale with Simplicity**  
 > **MongoDB = Flexible Schema + Cloud-Friendly**  
-> **Couchbase = High Performance + Memory-First**  
+> **Couchbase = High Performance + Memory-First**
