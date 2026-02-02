@@ -1,4 +1,4 @@
-package oop.object_relationships.implement;
+package com.naga;
 
 public class Vehicle {
     public static void main(String[] args) {
