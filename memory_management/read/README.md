@@ -3,8 +3,11 @@
 It is essential to understand the memory structure and management in java virtual machine for developing high performing java applications efficiently.
 
 The JVM is divided into several logical data areas, each performing a specific role during program execution.
+## JDK vs JRE vs JVM
+<img src="../../images/JVM_Memory_Management.png" width="400" height="200">
 
-<img src="../../images/JVM_Memory_Management.png" width="270" height="130">
+## JVM Memory
+<img src="../../images/JVM_Memory_Management.png" width="400" height="200">
 
 These logical areas in memory are
 
@@ -32,7 +35,7 @@ This shared access allows objects to be passed between threads and persist beyon
 
 The JVM divides heap into two regions: The Young Generation and the Old Generation. This layout, known as the Generational Heap Model, is based on the principle that most objects in Java applications are short-lived, and those that survive are likely to live much longer.
 
-<img src="../../images/JVM_Heap.png" width="270" height="130">
+<img src="../../images/JVM_Heap.png" width="300" height="150">
 
 ### Young Generation
 
