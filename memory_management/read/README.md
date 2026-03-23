@@ -4,7 +4,7 @@ It is essential to understand the memory structure and management in java virtua
 
 The JVM is divided into several logical data areas, each performing a specific role during program execution.
 ## JDK vs JRE vs JVM
-<img src="../../images/JVM_Memory_Management.png" width="400" height="200">
+<img src="../../images/JDK_JRE_JVM.png" width="400" height="200">
 
 ## JVM Memory
 <img src="../../images/JVM_Memory_Management.png" width="400" height="200">
