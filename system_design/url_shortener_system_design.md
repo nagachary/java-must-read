@@ -22,7 +22,7 @@
 
 A URL shortener converts a long URL into a short 8-character code. Users submit a long URL and receive a short URL (e.g. `sht.ly/aB3kR9xZ`). When a user clicks the short URL they are redirected to the original long URL within 100ms.
 
-<img src="./url_shortener_system_design_diagram.png" width="100%" height="100%">
+<img src="./url_shortener_system_design_diagram_02.png" width="100%" height="100%">
 ---
 
 ## Components
