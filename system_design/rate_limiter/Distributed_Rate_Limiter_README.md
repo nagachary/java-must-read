@@ -26,6 +26,7 @@
 16. [Advantages](#16-advantages)
 17. [Trade-offs and Limitations](#17-trade-offs-and-limitations)
 18. [Open Extensions](#18-open-extensions)
+19. [Diagram](#19-diagram)
 
 ---
 
@@ -440,6 +441,6 @@ Supporting differentiated limits for free, paid, and enterprise API key tiers re
 
 An advanced extension would dynamically adjust rate limits based on observed system health — tightening limits during periods of high fleet load and relaxing them during normal operation. This requires the Rate Limiter Service to receive real-time system health signals and adjust the limit threshold used in the estimate comparison accordingly, without modifying the counter state or the algorithm itself.
 
-### Diagram
+## 19. Diagram
 
 <img src="./distributed_rate_limiter_for_api_design.png" width="100%" height="100%">
