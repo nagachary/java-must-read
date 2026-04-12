@@ -24,8 +24,6 @@ Rate limiting is the practice of controlling the frequency at which a system acc
 
 Five algorithms have emerged as the primary approaches to rate limiting in production systems, each making a different set of trade-offs across dimensions including memory consumption, accuracy, burst tolerance, computational cost, and implementation complexity. No single algorithm is universally superior. The appropriate choice depends on the specific requirements of the system being protected and the nature of the traffic it serves.
 
-<img src="./distributed_rate_limiter_for_api_design.png" width="100%" height="100%">
-
 This document examines each algorithm in depth, evaluates its practical characteristics, and provides guidance on when each is and is not appropriate.
 
 ---
