@@ -11,4 +11,9 @@ Following are the covered topics in this repository.
 
 * [Change Data Capture (CDC)](./cdc_techniques/README.md)
 
+* [URL Shortener System Design](./system_design/url_shortener_system_design.md)
+
+* [Rate Limiter System Design](./system_design/rate_limiter/Distributed_Rate_Limiter_README.md)
+
+
 
