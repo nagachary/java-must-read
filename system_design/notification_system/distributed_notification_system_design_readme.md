@@ -1,8 +1,4 @@
-![img.png](img.png)# Distributed Notification System — System Design
-
-**Version:** 1.0  
-**Classification:** Senior Engineering Reference Document  
-**Scope:** Global distributed notification platform serving one billion users across four geographic regions
+# Distributed Notification System at One Billion Users
 
 ---
 

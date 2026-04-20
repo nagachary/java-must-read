@@ -15,5 +15,7 @@ Following are the covered topics in this repository.
 
 * [Rate Limiter System Design](./system_design/rate_limiter/Distributed_Rate_Limiter_README.md)
 
+* [Distributed Notification System - System Design](./system_design/notification_system/distributed_notification_system_design_readme.md)
+
 
 
