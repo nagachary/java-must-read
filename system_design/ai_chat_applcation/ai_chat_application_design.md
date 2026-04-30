@@ -349,5 +349,3 @@ The following table provides a consolidated reference mapping every architectura
 | Safety Layer      | Anthropic Constitutional AI            | Handled server-side by Anthropic                |
 
 ---
-
-*This document reflects the architecture as depicted in the AI Chat Application hand-drawn architecture diagram. All technology recommendations are based on production-proven tools. Implementation details may vary based on organisational constraints, cloud provider preferences, and scale requirements.*
