@@ -92,6 +92,8 @@ Redis Infrastructure Tier:
 
 ---
 <img src="./distributed_lock_system_design.png" width="100%" height="100%">
+
+Repository: https://github.com/nagachary/distributed-lock-app.git
 ---
 
 The orchestration tier is entirely hidden from callers. Riders interact only with the trip assignment API. Whether the lock was acquired through Redis, a database, or Zookeeper is irrelevant to the caller — the Strategy pattern ensures this implementation detail never leaks through the interface boundary.
@@ -233,13 +235,13 @@ Build Tool:       Maven with mvnw wrapper
 
 ### Key Dependencies
 
-| Dependency | Purpose |
-|---|---|
-| spring-boot-starter-web | REST API layer |
-| spring-boot-starter-data-redis | Redis connectivity |
+| Dependency                          | Purpose                 |
+|-------------------------------------|-------------------------|
+| spring-boot-starter-web             | REST API layer          |
+| spring-boot-starter-data-redis      | Redis connectivity      |
 | redisson-spring-boot-starter 3.27.0 | Distributed lock client |
-| spring-boot-starter-actuator | Health check endpoints |
-| micrometer-tracing-bridge-otel | Distributed tracing |
+| spring-boot-starter-actuator        | Health check endpoints  |
+| micrometer-tracing-bridge-otel      | Distributed tracing     |
 
 ---
 
