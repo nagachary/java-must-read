@@ -92,12 +92,11 @@ Redis Infrastructure Tier:
 
 ---
 <img src="./distributed_lock_system_design.png" width="100%" height="100%">
-
-Repository: https://github.com/nagachary/distributed-lock-app.git
 ---
 
 The orchestration tier is entirely hidden from callers. Riders interact only with the trip assignment API. Whether the lock was acquired through Redis, a database, or Zookeeper is irrelevant to the caller — the Strategy pattern ensures this implementation detail never leaks through the interface boundary.
 
+Repository: https://github.com/nagachary/distributed-lock-app.git
 ---
 
 ## 5. Design Patterns Applied
